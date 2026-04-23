@@ -1,124 +1,185 @@
+import type { Metadata } from "next";
+import { Suspense } from "react";
 import StationsList from "@/components/StationsList";
-import Link from "next/link";
-import { siteConfig } from "@/lib/siteConfig";
+import Button from "@/components/ui/Button";
+import Card from "@/components/ui/Card";
+
+export const metadata: Metadata = {
+  title: "Waschgang starten per App – ohne Münzen",
+  description:
+    "Starte deinen Waschgang direkt per Smartphone. Mit WASHABOO findest du Waschanlagen, öffnest die App per QR-Code und legst sofort los – ohne Münzen und ohne Aufwand.",
+  openGraph: {
+    title: "Waschgang starten per App – WASHABOO",
+    description:
+      "Per QR-Code direkt zur Waschanlage. Waschgang starten, Standorte finden und Waschen ohne Stress erleben.",
+    url: "/",
+  },
+};
+
+function StationsListSkeleton() {
+  return (
+    <section className="mt-20">
+      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div className="max-w-2xl">
+          <div className="h-4 w-28 animate-pulse rounded-full bg-slate-200" />
+          <div className="mt-3 h-9 w-80 max-w-full animate-pulse rounded-xl bg-slate-200" />
+          <div className="mt-4 h-5 w-96 max-w-full animate-pulse rounded-xl bg-slate-200" />
+        </div>
+
+        <div className="h-10 w-28 animate-pulse rounded-full bg-white ring-1 ring-slate-200/70" />
+      </div>
+
+      <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {[...Array(3)].map((_, index) => (
+          <Card key={index} className="overflow-hidden">
+            <div className="h-3 w-20 animate-pulse rounded-full bg-slate-200" />
+            <div className="mt-3 h-7 w-40 animate-pulse rounded-xl bg-slate-200" />
+
+            <div className="mt-5 rounded-2xl bg-slate-50 p-4">
+              <div className="h-4 w-32 animate-pulse rounded-lg bg-slate-200" />
+              <div className="mt-2 h-4 w-24 animate-pulse rounded-lg bg-slate-200" />
+            </div>
+
+            <div className="mt-5 h-4 w-full animate-pulse rounded-lg bg-slate-200" />
+            <div className="mt-2 h-4 w-5/6 animate-pulse rounded-lg bg-slate-200" />
+          </Card>
+        ))}
+      </div>
+    </section>
+  );
+}
 
 export default function Home() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        name: "WASHABOO",
+        alternateName: "WASHABOO – Waschen ohne Stress",
+        url: "https://frontend-nadja-aarugwnge-washaboo.vercel.app",
+        inLanguage: "de-AT",
+        description:
+          "WASHABOO bringt Nutzer per QR-Code oder Link direkt zur Waschanlage und ermöglicht einen schnellen digitalen Einstieg.",
+      },
+      {
+        "@type": "Organization",
+        name: "WASHABOO",
+        url: "https://frontend-nadja-aarugwnge-washaboo.vercel.app",
+        slogan: "Waschen ohne Stress",
+        description:
+          "WASHABOO ermöglicht einen einfachen digitalen Zugang zur Waschanlage per QR-Code oder Link.",
+      },
+    ],
+  };
+
   return (
-    <main className="mx-auto max-w-6xl px-6 py-16">
-      
-      {/* HERO */}
-      <section className="rounded-3xl bg-gradient-to-br from-gray-50 to-gray-100 px-8 py-20 text-center">
-        <h1 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-gray-900 md:text-5xl">
-          Einfacher Zugang zur App – für Nutzer und Partner
-        </h1>
+    <main className="min-h-screen bg-[#F5F7FA] text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
 
-        <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-600">
-          Unsere Plattform ermöglicht einen schnellen Einstieg über QR-Code oder
-          Direktlink und zeigt sofort, wo die App bereits genutzt werden kann.
-        </p>
+      <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
+        {/* HERO */}
+        <section className="relative overflow-hidden rounded-[2rem] bg-[#0B1120] px-6 py-14 text-white shadow-[0_20px_60px_rgba(2,6,23,0.18)] md:px-10 md:py-20">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(79,195,247,0.22),_transparent_30%),radial-gradient(circle_at_top_right,_rgba(33,150,243,0.18),_transparent_28%),linear-gradient(135deg,_#0B1120_0%,_#0F172A_45%,_#111827_100%)]" />
 
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <Link
-            href="/user"
-            className="rounded-xl bg-black px-6 py-3 text-white text-sm font-medium transition hover:opacity-90"
-          >
-            Jetzt nutzen
-          </Link>
+          <div className="relative z-10 grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+            <div className="max-w-3xl">
+              <span className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-sm font-medium text-white/85 backdrop-blur-sm">
+                WASHABOO · Waschen ohne Stress
+              </span>
 
-          <Link
-            href="/partner"
-            className="rounded-xl border border-gray-300 px-6 py-3 text-sm font-medium text-gray-900 transition hover:bg-white"
-          >
-            Partner werden
-          </Link>
-        </div>
-      </section>
+              <h1 className="mt-6 max-w-3xl text-4xl font-semibold tracking-tight text-white md:text-6xl md:leading-[1.05]">
+                Waschgang starten per App
+                <br />
+                <span className="bg-gradient-to-r from-[#4FC3F7] via-[#2196F3] to-[#26C6DA] bg-clip-text text-transparent">
+                  Ohne Münzen. Ohne Suchen.
+                </span>
+              </h1>
 
-      {/* VORTEILE */}
-      <section className="mt-20 grid gap-6 md:grid-cols-3">
-        <div className="rounded-2xl border border-gray-200 p-6">
-          <h2 className="text-lg font-semibold">Schnell</h2>
-          <p className="mt-2 text-sm text-gray-600">
-            Direkter Einstieg über QR-Code oder Link – ohne Umwege.
-          </p>
-        </div>
+              <p className="mt-6 max-w-2xl text-base leading-7 text-slate-300 md:text-lg">
+                Direkt an der Waschanlage starten — per QR-Code oder Link.
+                Schnell, klar und ohne Umwege.
+              </p>
 
-        <div className="rounded-2xl border border-gray-200 p-6">
-          <h2 className="text-lg font-semibold">Einfach</h2>
-          <p className="mt-2 text-sm text-gray-600">
-            Intuitive Nutzung für alle Zielgruppen, ohne technische Hürden.
-          </p>
-        </div>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Button href="/user" variant="primary">
+                  Jetzt starten
+                </Button>
 
-        <div className="rounded-2xl border border-gray-200 p-6">
-          <h2 className="text-lg font-semibold">Skalierbar</h2>
-          <p className="mt-2 text-sm text-gray-600">
-            Erweiterbar auf neue Standorte und Partner.
-          </p>
-        </div>
-      </section>
+                <Button
+                  href="/partner"
+                  variant="secondary"
+                  className="border-white/15 bg-white/5 text-white hover:bg-white/10"
+                >
+                  Für Partner
+                </Button>
+              </div>
+            </div>
 
-      {/* SO FUNKTIONIERTS */}
-      <section className="mt-20">
-        <h2 className="text-2xl font-bold">So funktioniert’s</h2>
+            <div className="relative">
+              <div className="rounded-[2rem] border border-white/10 bg-white/10 p-4 backdrop-blur-md">
+                <div className="rounded-[1.5rem] bg-white p-5 text-slate-900 shadow-2xl">
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                        Nutzerzugang
+                      </p>
+                      <h2 className="mt-2 text-2xl font-semibold text-slate-900">
+                        In wenigen Sekunden startklar
+                      </h2>
+                    </div>
+                    <div className="h-11 w-11 rounded-2xl bg-gradient-to-br from-[#4FC3F7] via-[#2196F3] to-[#1E88E5]" />
+                  </div>
 
-        <div className="mt-6 grid gap-6 md:grid-cols-3">
-          <div className="rounded-2xl bg-gray-50 p-6">
-            <p className="text-sm font-semibold text-gray-500">1</p>
-            <h3 className="mt-2 font-semibold">QR-Code scannen</h3>
-            <p className="mt-2 text-sm text-gray-600">
-              Nutzer scannen den Code oder klicken auf den Link.
-            </p>
+                  <div className="mt-6 space-y-3">
+                    <div className="rounded-2xl bg-slate-50 p-4">
+                      <p className="text-sm font-semibold text-slate-900">
+                        1. QR-Code scannen
+                      </p>
+                      <p className="mt-1 text-sm text-slate-600">
+                        Direkt von der Station oder per Link öffnen.
+                      </p>
+                    </div>
+
+                    <div className="rounded-2xl bg-slate-50 p-4">
+                      <p className="text-sm font-semibold text-slate-900">
+                        2. App öffnen
+                      </p>
+                      <p className="mt-1 text-sm text-slate-600">
+                        Ohne Umwege direkt zum passenden Einstieg.
+                      </p>
+                    </div>
+
+                    <div className="rounded-2xl bg-slate-50 p-4">
+                      <p className="text-sm font-semibold text-slate-900">
+                        3. Standort nutzen
+                      </p>
+                      <p className="mt-1 text-sm text-slate-600">
+                        Sofort sehen, wo WASHABOO bereits verfügbar ist.
+                      </p>
+                    </div>
+                  </div>
+
+                  <Button
+                    href="/user"
+                    variant="primary"
+                    className="mt-6 w-full bg-slate-950 shadow-none hover:bg-slate-800"
+                  >
+                    Nutzerzugang öffnen
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <div className="rounded-2xl bg-gray-50 p-6">
-            <p className="text-sm font-semibold text-gray-500">2</p>
-            <h3 className="mt-2 font-semibold">App öffnen</h3>
-            <p className="mt-2 text-sm text-gray-600">
-              Direkter Zugriff ohne komplizierte Schritte.
-            </p>
-          </div>
-
-          <div className="rounded-2xl bg-gray-50 p-6">
-            <p className="text-sm font-semibold text-gray-500">3</p>
-            <h3 className="mt-2 font-semibold">Nutzen</h3>
-            <p className="mt-2 text-sm text-gray-600">
-              Sofortige Nutzung an verfügbaren Stationen.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* STATIONEN */}
-      <StationsList />
-
-      {/* CTA */}
-      <section className="mt-20 rounded-3xl bg-black px-8 py-16 text-center text-white">
-        <h2 className="text-3xl font-bold">
-          Jetzt starten oder Partner werden
-        </h2>
-
-        <p className="mt-4 text-gray-300">
-          Werden Sie Teil des Netzwerks oder nutzen Sie die App direkt.
-        </p>
-
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <Link
-            href="/user"
-            className="rounded-xl bg-white px-6 py-3 text-black text-sm font-medium"
-          >
-            Zur App
-          </Link>
-
-          <Link
-            href="/partner"
-            className="rounded-xl border border-white px-6 py-3 text-sm font-medium"
-          >
-            Partner werden
-          </Link>
-        </div>
-      </section>
-
+        <Suspense fallback={<StationsListSkeleton />}>
+          <StationsList />
+        </Suspense>
+      </div>
     </main>
   );
 }
