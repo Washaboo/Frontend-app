@@ -76,9 +76,9 @@ export default function OpengraphImage() {
             bottom: 120,
             width: 14,
             height: 14,
-            color: "rgba(255,255,255,0.28)",
             fontSize: 28,
             fontWeight: 500,
+            color: "rgba(255,255,255,0.28)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -90,7 +90,6 @@ export default function OpengraphImage() {
         <div
           style={{
             position: "relative",
-            zIndex: 2,
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
@@ -101,7 +100,7 @@ export default function OpengraphImage() {
         >
           <div
             style={{
-              display: "inline-flex",
+              display: "flex",
               alignSelf: "flex-start",
               padding: "12px 20px",
               borderRadius: 9999,
@@ -132,7 +131,17 @@ export default function OpengraphImage() {
               }}
             >
               Waschgang starten
-              <br />
+            </div>
+
+            <div
+              style={{
+                fontSize: 76,
+                lineHeight: 1.02,
+                fontWeight: 700,
+                letterSpacing: "-0.045em",
+                color: "#FFFFFF",
+              }}
+            >
               per App
             </div>
 
@@ -143,9 +152,7 @@ export default function OpengraphImage() {
                 lineHeight: 1.3,
                 fontWeight: 600,
                 letterSpacing: "-0.03em",
-                background:
-                  "linear-gradient(90deg, #4FC3F7 0%, #2196F3 55%, #26C6DA 100%)",
-                color: "transparent",
+                color: "#4FC3F7",
               }}
             >
               Ohne Münzen. Ohne Suchen.
@@ -173,8 +180,8 @@ export default function OpengraphImage() {
               color: "rgba(255,255,255,0.58)",
             }}
           >
-            <div>frontend-nadja-aarugwnge-washaboo.vercel.app</div>
             <div>WASHABOO</div>
+            <div>Waschen ohne Stress</div>
           </div>
         </div>
       </div>
