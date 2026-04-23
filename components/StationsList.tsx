@@ -16,11 +16,10 @@ export default async function StationsList() {
               Standorte
             </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900">
-              Hier ist WASHABOO bereits verfügbar
+              Hier kannst du WASHABOO schon nutzen
             </h2>
             <p className="mt-3 text-base leading-7 text-slate-600">
-              Nutzer sehen direkt, an welchen Standorten der Einstieg bereits
-              möglich ist.
+              Diese Standorte sind bereits verfügbar.
             </p>
           </div>
 
@@ -39,8 +38,8 @@ export default async function StationsList() {
                 Aktuell sind noch keine Stationen sichtbar
               </h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">
-                WASHABOO wird laufend erweitert. Schauen Sie bald noch einmal
-                vorbei, um neue verfügbare Standorte zu sehen.
+                WASHABOO wird laufend erweitert. Schau bald noch einmal vorbei,
+                um neue verfügbare Standorte zu sehen.
               </p>
             </div>
           </Card>
@@ -113,7 +112,7 @@ export default async function StationsList() {
             </h2>
             <p className="mt-3 text-sm leading-6 text-slate-600">
               Die Standortdaten konnten im Moment nicht geladen werden.
-              Versuchen Sie es bitte gleich noch einmal.
+              Versuche es bitte gleich noch einmal.
             </p>
           </div>
         </Card>

@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 16px;
 }
 
 .desktopNav {
@@ -11,6 +11,7 @@
 
 .mobileButton {
   display: none;
+  flex-shrink: 0;
 }
 
 .mobileMenu {
@@ -18,18 +19,20 @@
 }
 
 @media (max-width: 768px) {
+  .topRow {
+    gap: 12px;
+  }
+
   .desktopNav {
     display: none;
   }
 
   .mobileButton {
-    display: block;
+    display: flex;
+    align-items: center;
   }
 
   .mobileMenu {
     display: block;
-    margin-top: 16px;
-    border-top: 1px solid #e5e7eb;
-    padding-top: 16px;
   }
 }

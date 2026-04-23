@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 function StationsListSkeleton() {
   return (
-    <section className="mt-20">
+    <section className="mt-20 md:mt-24">
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div className="max-w-2xl">
           <div className="h-4 w-28 animate-pulse rounded-full bg-slate-200" />
@@ -80,18 +80,18 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
         {/* HERO */}
-        <section className="relative overflow-hidden rounded-[2rem] bg-[#0B1120] px-6 py-14 text-white shadow-[0_20px_60px_rgba(2,6,23,0.18)] md:px-10 md:py-20">
+        <section className="relative overflow-hidden rounded-[2rem] bg-[#0B1120] px-5 py-8 text-white shadow-[0_20px_60px_rgba(2,6,23,0.18)] sm:px-6 sm:py-10 md:px-10 md:py-20">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(79,195,247,0.22),_transparent_30%),radial-gradient(circle_at_top_right,_rgba(33,150,243,0.18),_transparent_28%),linear-gradient(135deg,_#0B1120_0%,_#0F172A_45%,_#111827_100%)]" />
 
-          <div className="relative z-10 grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="relative z-10 grid items-start gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:gap-10">
             <div className="max-w-3xl">
-              <span className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-sm font-medium text-white/85 backdrop-blur-sm">
+              <span className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-medium text-white/85 backdrop-blur-sm sm:px-4 sm:text-sm">
                 WASHABOO · Waschen ohne Stress
               </span>
 
-              <h1 className="mt-6 max-w-3xl text-4xl font-semibold tracking-tight text-white md:text-6xl md:leading-[1.05]">
+              <h1 className="mt-5 text-[2rem] font-semibold leading-[1.05] tracking-tight text-white sm:text-4xl md:text-6xl md:leading-[1.05]">
                 Waschgang starten per App
                 <br />
                 <span className="bg-gradient-to-r from-[#4FC3F7] via-[#2196F3] to-[#26C6DA] bg-clip-text text-transparent">
@@ -99,66 +99,74 @@ export default function Home() {
                 </span>
               </h1>
 
-              <p className="mt-6 max-w-2xl text-base leading-7 text-slate-300 md:text-lg">
-                Direkt an der Waschanlage starten — per QR-Code oder Link.
-                Schnell, klar und ohne Umwege.
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-300 sm:text-base sm:leading-7 md:text-lg">
+                Direkt starten — per QR-Code oder Link an der Waschanlage.
               </p>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button href="/user" variant="primary">
-                  Jetzt starten
+              <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
+                <Button href="/user" variant="primary" className="w-full sm:w-auto">
+                  Waschgang starten
                 </Button>
 
                 <Button
                   href="/partner"
                   variant="secondary"
-                  className="border-white/15 bg-white/5 text-white hover:bg-white/10"
+                  className="w-full border-white/15 bg-white/5 text-white hover:bg-white/10 sm:w-auto"
                 >
-                  Für Partner
+                  Partner werden
                 </Button>
+              </div>
+
+              <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-xs text-white/65 sm:text-sm">
+                <span>QR-Code oder Link</span>
+                <span className="text-white/25">•</span>
+                <span>Sofort verständlich</span>
+                <span className="text-white/25">•</span>
+                <span>Ohne Umwege</span>
               </div>
             </div>
 
+            {/* RIGHT CARD */}
             <div className="relative">
-              <div className="rounded-[2rem] border border-white/10 bg-white/10 p-4 backdrop-blur-md">
-                <div className="rounded-[1.5rem] bg-white p-5 text-slate-900 shadow-2xl">
+              <div className="rounded-[1.75rem] border border-white/10 bg-white/10 p-3 backdrop-blur-md sm:rounded-[2rem] sm:p-4">
+                <div className="rounded-[1.5rem] bg-white p-4 text-slate-900 shadow-2xl sm:p-5">
                   <div className="flex items-center justify-between gap-4">
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400 sm:text-xs">
                         Nutzerzugang
                       </p>
-                      <h2 className="mt-2 text-2xl font-semibold text-slate-900">
+                      <h2 className="mt-2 text-xl font-semibold text-slate-900 sm:text-2xl">
                         In wenigen Sekunden startklar
                       </h2>
                     </div>
-                    <div className="h-11 w-11 rounded-2xl bg-gradient-to-br from-[#4FC3F7] via-[#2196F3] to-[#1E88E5]" />
+                    <div className="h-10 w-10 rounded-2xl bg-gradient-to-br from-[#4FC3F7] via-[#2196F3] to-[#1E88E5] sm:h-11 sm:w-11" />
                   </div>
 
-                  <div className="mt-6 space-y-3">
-                    <div className="rounded-2xl bg-slate-50 p-4">
+                  <div className="mt-5 space-y-3 sm:mt-6">
+                    <div className="rounded-2xl bg-slate-50 p-3.5 sm:p-4">
                       <p className="text-sm font-semibold text-slate-900">
                         1. QR-Code scannen
                       </p>
                       <p className="mt-1 text-sm text-slate-600">
-                        Direkt von der Station oder per Link öffnen.
+                        Direkt an der Station oder per Link öffnen.
                       </p>
                     </div>
 
-                    <div className="rounded-2xl bg-slate-50 p-4">
+                    <div className="rounded-2xl bg-slate-50 p-3.5 sm:p-4">
                       <p className="text-sm font-semibold text-slate-900">
-                        2. App öffnen
+                        2. Sofort öffnen
                       </p>
                       <p className="mt-1 text-sm text-slate-600">
-                        Ohne Umwege direkt zum passenden Einstieg.
+                        Ohne Umwege direkt in die App.
                       </p>
                     </div>
 
-                    <div className="rounded-2xl bg-slate-50 p-4">
+                    <div className="rounded-2xl bg-slate-50 p-3.5 sm:p-4">
                       <p className="text-sm font-semibold text-slate-900">
-                        3. Standort nutzen
+                        3. Standort wählen
                       </p>
                       <p className="mt-1 text-sm text-slate-600">
-                        Sofort sehen, wo WASHABOO bereits verfügbar ist.
+                        Direkt sehen, wo WASHABOO verfügbar ist.
                       </p>
                     </div>
                   </div>
@@ -166,9 +174,9 @@ export default function Home() {
                   <Button
                     href="/user"
                     variant="primary"
-                    className="mt-6 w-full bg-slate-950 shadow-none hover:bg-slate-800"
+                    className="mt-5 w-full bg-slate-950 shadow-none hover:bg-slate-800 sm:mt-6"
                   >
-                    Nutzerzugang öffnen
+                    App öffnen
                   </Button>
                 </div>
               </div>
@@ -176,6 +184,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* STATIONS */}
         <Suspense fallback={<StationsListSkeleton />}>
           <StationsList />
         </Suspense>
