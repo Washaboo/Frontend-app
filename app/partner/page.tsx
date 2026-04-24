@@ -83,7 +83,9 @@ export default function PartnerPage() {
               <form
                 action={FORM_ENDPOINT}
                 method="POST"
-                onSubmit={() => setSubmitted(true)}
+                onSubmit={(e) => {
+  setTimeout(() => setSubmitted(true), 100);
+}}
                 className="space-y-4"
               >
                 <div>
