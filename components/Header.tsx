@@ -1,10 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import styles from "./Header.module.css";
 import clsx from "clsx";
+import styles from "./Header.module.css";
 
 const navItems = [
   { href: "/", label: "Start" },
@@ -17,8 +18,8 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/95 backdrop-blur-md">
-      <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 sm:py-4">
+    <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/90 backdrop-blur-xl">
+      <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6">
         <div className={clsx(styles.topRow, "gap-4")}>
           <Link
             href="/"
@@ -26,15 +27,19 @@ export default function Header() {
             className="flex min-w-0 items-center"
             aria-label="Zur Startseite"
           >
-<img
-  src="/logo.png"
+            import Image from "next/image";
+
+<Image
+  src="/Wash.svg"
   alt="WASHABOO"
-  className="h-12 w-auto sm:h-14"
+  width={140}
+  height={40}
+  className="h-9 w-auto"
 />
           </Link>
 
           <div className={styles.desktopNav}>
-            <nav className="flex items-center gap-6 text-sm">
+            <nav className="flex items-center gap-2 rounded-full bg-slate-100/80 p-1 text-sm">
               {navItems.map((item) => {
                 const isActive = pathname === item.href;
 
@@ -43,17 +48,13 @@ export default function Header() {
                     key={item.href}
                     href={item.href}
                     className={clsx(
-                      "relative transition",
+                      "rounded-full px-4 py-2 font-medium transition",
                       isActive
-                        ? "font-semibold text-slate-900"
-                        : "text-slate-600 hover:text-slate-900"
+                        ? "bg-white text-slate-950 shadow-sm"
+                        : "text-slate-600 hover:text-slate-950"
                     )}
                   >
                     {item.label}
-
-                    {isActive && (
-                      <span className="absolute -bottom-1 left-0 h-[2px] w-full bg-gradient-to-r from-[var(--brand-light)] via-[var(--brand)] to-[var(--brand-dark)]" />
-                    )}
                   </Link>
                 );
               })}
@@ -63,16 +64,15 @@ export default function Header() {
           <div className={styles.mobileButton}>
             <button
               type="button"
-              onClick={() => setMenuOpen(!menuOpen)}
+              onClick={() => setMenuOpen((open) => !open)}
               aria-expanded={menuOpen}
               aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
               className={clsx(
-                "inline-flex min-h-[44px] items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold transition-all duration-200",
-                "border-slate-200 bg-white text-slate-700 shadow-sm",
-                "hover:border-slate-300 hover:bg-slate-50",
+                "inline-flex min-h-[42px] items-center justify-center rounded-full px-4 py-2 text-sm font-semibold transition",
+                "bg-slate-100 text-slate-700 hover:bg-slate-200",
                 "active:scale-[0.98]",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)] focus-visible:ring-offset-2",
-                menuOpen && "border-slate-300 bg-slate-100 text-slate-900"
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#26C6DA] focus-visible:ring-offset-2",
+                menuOpen && "bg-slate-200 text-slate-950"
               )}
             >
               {menuOpen ? "Schließen" : "Menü"}
@@ -81,9 +81,9 @@ export default function Header() {
         </div>
 
         {menuOpen && (
-          <div className={clsx(styles.mobileMenu, "mt-4")}>
-            <div className="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white p-3 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
-              <nav className="flex flex-col gap-2">
+          <div className={clsx(styles.mobileMenu, "mt-3")}>
+            <div className="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white p-2 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+              <nav className="flex flex-col gap-1">
                 {navItems.map((item) => {
                   const isActive = pathname === item.href;
 
@@ -93,10 +93,10 @@ export default function Header() {
                       href={item.href}
                       onClick={() => setMenuOpen(false)}
                       className={clsx(
-                        "rounded-xl px-4 py-3 text-sm font-medium transition",
+                        "rounded-2xl px-4 py-3 text-sm font-medium transition",
                         isActive
-                          ? "bg-slate-100 font-semibold text-slate-900"
-                          : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                          ? "bg-[#EAF7FF] font-semibold text-[#1565C0]"
+                          : "text-slate-600 hover:bg-slate-50 hover:text-slate-950"
                       )}
                     >
                       {item.label}

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 function StationsListSkeleton() {
   return (
-    <section className="mt-20 md:mt-24">
+    <section className="mt-16 md:mt-20">
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div className="max-w-2xl">
           <div className="h-4 w-28 animate-pulse rounded-full bg-slate-200" />
@@ -80,109 +80,100 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
-        <section className="relative overflow-hidden rounded-[2rem] bg-[#0B1120] px-5 py-8 text-white shadow-[0_20px_60px_rgba(2,6,23,0.18)] sm:px-6 sm:py-10 md:px-10 md:py-20">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(79,195,247,0.22),_transparent_30%),radial-gradient(circle_at_top_right,_rgba(33,150,243,0.18),_transparent_28%),linear-gradient(135deg,_#0B1120_0%,_#0F172A_45%,_#111827_100%)]" />
+      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 md:py-12">
+        <section className="relative overflow-hidden rounded-[2rem] bg-white px-5 py-10 shadow-[0_18px_50px_rgba(15,23,42,0.08)] ring-1 ring-slate-200/70 sm:px-8 sm:py-12 md:px-10 md:py-16">
+          <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full border border-[#4FC3F7]/25" />
+          <div className="pointer-events-none absolute -right-10 top-16 h-32 w-32 rounded-full border border-[#2196F3]/20" />
+          <div className="pointer-events-none absolute bottom-10 left-8 h-16 w-16 rounded-full border border-[#26C6DA]/25" />
 
-          <div className="relative z-10 grid items-start gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:gap-10">
+          <div className="relative z-10 grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="max-w-3xl">
-              <span className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-medium text-white/85 backdrop-blur-sm sm:px-4 sm:text-sm">
+              <span className="inline-flex items-center rounded-full bg-[#EAF7FF] px-4 py-1.5 text-xs font-semibold text-[#1565C0] sm:text-sm">
                 WASHABOO · Waschen ohne Stress
               </span>
 
-              <h1 className="mt-5 text-[2rem] font-semibold leading-[1.02] tracking-tight text-white sm:text-4xl md:text-6xl md:leading-[1.02]">
-                Auto waschen per App
+              <h1 className="mt-5 text-4xl font-semibold leading-[1.05] tracking-tight text-slate-950 sm:text-5xl md:text-6xl">
+                Auto waschen
                 <br />
-                <span className="bg-gradient-to-r from-[var(--brand-light)] via-[var(--brand)] to-[var(--brand-accent)] bg-clip-text text-transparent">
-                  Direkt. Einfach. Ohne Münzen.
+                <span className="bg-gradient-to-r from-[#4FC3F7] via-[#2196F3] to-[#1E88E5] bg-clip-text text-transparent">
+                  direkt per App.
                 </span>
               </h1>
 
-              <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-300 sm:text-base sm:leading-7 md:text-lg">
-                Auto waschen ohne Aufwand – öffne die App per QR-Code, wähle
-                deinen Tarif und starte sofort.
+              <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 md:text-lg">
+                QR-Code scannen, einloggen, Tarif wählen und Waschgang starten.
+                Einfach, digital und ohne Münzen.
               </p>
 
-              <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Button href="/user" variant="primary" className="w-full sm:w-auto">
                   Waschgang starten
                 </Button>
 
-                <Button
-                  href="/partner"
-                  variant="secondary"
-                  className="w-full border-white/15 bg-white/5 text-white hover:bg-white/10 sm:w-auto"
-                >
+                <Button href="/partner" variant="secondary" className="w-full sm:w-auto">
                   Partner werden
                 </Button>
               </div>
 
-              <p className="mt-3 text-xs text-white/60">
-                Login & Bezahlung direkt in der App
-              </p>
-
-              <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-xs text-white/65 sm:text-sm">
-                <span>QR-Code oder Link</span>
-                <span className="text-white/25">•</span>
-                <span>Abo oder Einzelnutzung</span>
-                <span className="text-white/25">•</span>
-                <span>Monatliche Abrechnung</span>
+              <div className="mt-6 flex flex-wrap gap-2 text-sm text-slate-600">
+                <span className="rounded-full bg-slate-100 px-3 py-1">
+                  QR-Code oder Link
+                </span>
+                <span className="rounded-full bg-slate-100 px-3 py-1">
+                  Abo oder Einzelnutzung
+                </span>
+                <span className="rounded-full bg-slate-100 px-3 py-1">
+                  Login & Bezahlung in der App
+                </span>
               </div>
 
-              <div className="mt-4 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
+              <p className="mt-4 text-sm text-slate-500">
                 Basic ab 35 € / Monat · Premium 40 € / Monat
-              </div>
+              </p>
             </div>
 
             <div className="relative">
-              <div className="rounded-[1.75rem] border border-white/10 bg-white/10 p-3 backdrop-blur-md sm:rounded-[2rem] sm:p-4">
-                <div className="rounded-[1.5rem] bg-white p-4 text-slate-900 shadow-2xl sm:p-5">
-                  <div className="flex items-center justify-between gap-4">
+              <div className="rounded-[2rem] bg-gradient-to-br from-[#4FC3F7] via-[#2196F3] to-[#1E88E5] p-[1px] shadow-[0_20px_50px_rgba(33,150,243,0.18)]">
+                <div className="rounded-[2rem] bg-white p-5 sm:p-6">
+                  <div className="flex items-start justify-between gap-4">
                     <div>
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400 sm:text-xs">
-                        Nutzerzugang
+                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                        So funktioniert&apos;s
                       </p>
-                      <h2 className="mt-2 text-xl font-semibold text-slate-900 sm:text-2xl">
-                        In wenigen Schritten startklar
+                      <h2 className="mt-2 text-2xl font-semibold text-slate-950">
+                        In 3 Schritten startklar
                       </h2>
                     </div>
-                    <div className="h-10 w-10 rounded-2xl bg-gradient-to-br from-[var(--brand-light)] via-[var(--brand)] to-[var(--brand-dark)] sm:h-11 sm:w-11" />
-                  </div>
 
-                  <div className="mt-5 space-y-3 sm:mt-6">
-                    <div className="rounded-2xl bg-slate-50 p-3.5 sm:p-4">
-                      <p className="text-sm font-semibold text-slate-900">
-                        1. QR-Code scannen
-                      </p>
-                      <p className="mt-1 text-sm text-slate-600">
-                        Direkt an der Station oder per Link öffnen.
-                      </p>
-                    </div>
-
-                    <div className="rounded-2xl bg-slate-50 p-3.5 sm:p-4">
-                      <p className="text-sm font-semibold text-slate-900">
-                        2. Einloggen & Tarif wählen
-                      </p>
-                      <p className="mt-1 text-sm text-slate-600">
-                        Basic, Premium oder Einzelnutzung auswählen.
-                      </p>
-                    </div>
-
-                    <div className="rounded-2xl bg-slate-50 p-3.5 sm:p-4">
-                      <p className="text-sm font-semibold text-slate-900">
-                        3. Waschgang starten
-                      </p>
-                      <p className="mt-1 text-sm text-slate-600">
-                        Direkt loslegen — ohne Münzen an der Waschanlage.
-                      </p>
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#EAF7FF] text-xl font-semibold text-[#2196F3]">
+                      +
                     </div>
                   </div>
 
-                  <Button
-                    href="/user"
-                    variant="primary"
-                    className="mt-5 w-full bg-slate-950 shadow-none hover:bg-slate-800 sm:mt-6"
-                  >
+                  <div className="mt-6 space-y-3">
+                    {[
+                      ["1", "QR-Code scannen", "Direkt an der Station oder per Link öffnen."],
+                      ["2", "Tarif wählen", "Basic, Premium oder Einzelnutzung auswählen."],
+                      ["3", "Waschgang starten", "Ohne Münzen direkt loslegen."],
+                    ].map(([number, title, text]) => (
+                      <div
+                        key={number}
+                        className="flex gap-4 rounded-2xl bg-[#F5F7FA] p-4"
+                      >
+                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-sm font-semibold text-[#2196F3] shadow-sm">
+                          {number}
+                        </div>
+                        <div>
+                          <p className="font-semibold text-slate-950">{title}</p>
+                          <p className="mt-1 text-sm leading-6 text-slate-600">
+                            {text}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <Button href="/user" variant="primary" className="mt-6 w-full">
                     App öffnen
                   </Button>
                 </div>
