@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
@@ -27,14 +26,11 @@ export default function Header() {
             className="flex min-w-0 items-center"
             aria-label="Zur Startseite"
           >
-            <Image
-              src="/logo.png"
-              alt="WASHABOO"
-              width={180}
-              height={56}
-              priority
-              className="h-10 w-auto sm:h-11"
-            />
+<img
+  src="/logo.png"
+  alt="WASHABOO"
+  className="h-12 w-auto sm:h-14"
+/>
           </Link>
 
           <div className={styles.desktopNav}>
