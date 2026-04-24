@@ -24,17 +24,16 @@ export default function UserPage() {
             </p>
 
             <h1 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
-              Waschgang direkt starten
+              Waschgang starten
             </h1>
 
             <p className="mt-3 text-sm leading-6 text-white/70 sm:text-base sm:leading-7">
-              Scanne den QR-Code und öffne den Einstieg direkt an der
-              Waschanlage. Kein Login nötig.
+              Starte deinen Waschgang direkt an der Waschanlage – per App, mit
+              Login und flexibler Nutzung.
             </p>
           </div>
 
           <div className="mt-8 grid items-center gap-8 md:mt-10 md:grid-cols-2 md:gap-10">
-            {/* QR CODE */}
             <div className="flex justify-center">
               <div className="w-full max-w-[320px] rounded-[1.75rem] border border-white/10 bg-white/10 p-3 backdrop-blur-md">
                 <div className="relative rounded-[1.5rem] bg-white p-5 shadow-2xl sm:p-6">
@@ -45,7 +44,7 @@ export default function UserPage() {
                       QR-Code
                     </p>
                     <p className="mt-2 text-sm text-slate-600">
-                      Mit dem Smartphone scannen und direkt öffnen
+                      Mit dem Smartphone scannen und direkt starten
                     </p>
 
                     <div className="mt-5">
@@ -56,7 +55,6 @@ export default function UserPage() {
               </div>
             </div>
 
-            {/* ACTION FLOW */}
             <div>
               <div className="rounded-2xl bg-white/10 p-4 backdrop-blur-sm sm:p-5">
                 <p className="text-sm font-semibold text-white">
@@ -69,19 +67,31 @@ export default function UserPage() {
 
               <div className="mt-4 rounded-2xl bg-white/10 p-4 backdrop-blur-sm sm:p-5">
                 <p className="text-sm font-semibold text-white">
-                  2. App öffnet sich sofort
+                  2. Login in der App
                 </p>
                 <p className="mt-1 text-sm text-white/70">
-                  Du landest direkt im richtigen Einstieg.
+                  Melde dich an oder erstelle ein Konto.
                 </p>
               </div>
 
               <div className="mt-4 rounded-2xl bg-white/10 p-4 backdrop-blur-sm sm:p-5">
                 <p className="text-sm font-semibold text-white">
-                  3. Direkt loslegen
+                  3. Waschgang starten
                 </p>
                 <p className="mt-1 text-sm text-white/70">
-                  Ohne Umwege und ohne zusätzliche Schritte.
+                  Tarif wählen und direkt loslegen.
+                </p>
+              </div>
+
+              <div className="mt-6 rounded-2xl bg-white/10 p-4 text-sm text-white/80">
+                <p className="font-semibold text-white">Preise</p>
+                <ul className="mt-2 space-y-1 text-white/70">
+                  <li>Basic: 4× Waschen / Monat – 35 €</li>
+                  <li>Premium: 1× täglich – 40 €</li>
+                  <li>Einzelnutzung ebenfalls möglich</li>
+                </ul>
+                <p className="mt-2 text-xs text-white/50">
+                  Abrechnung erfolgt monatlich
                 </p>
               </div>
 

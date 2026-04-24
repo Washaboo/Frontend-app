@@ -5,13 +5,13 @@ import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 
 export const metadata: Metadata = {
-  title: "Waschgang starten per App – ohne Münzen",
+  title: "Auto waschen per App – WASHABOO",
   description:
-    "Starte deinen Waschgang direkt per Smartphone. Mit WASHABOO findest du Waschanlagen, öffnest die App per QR-Code und legst sofort los – ohne Münzen und ohne Aufwand.",
+    "Starte deinen Waschgang direkt per Smartphone. Mit WASHABOO öffnest du die App per QR-Code oder Link, wählst deinen Tarif und legst los.",
   openGraph: {
-    title: "Waschgang starten per App – WASHABOO",
+    title: "Auto waschen per App – WASHABOO",
     description:
-      "Per QR-Code direkt zur Waschanlage. Waschgang starten, Standorte finden und Waschen ohne Stress erleben.",
+      "Per QR-Code direkt zur Waschanlage. Login, Tarif wählen und Waschgang starten – einfach mit WASHABOO.",
     url: "/",
   },
 };
@@ -60,7 +60,7 @@ export default function Home() {
         url: "https://frontend-nadja-aarugwnge-washaboo.vercel.app",
         inLanguage: "de-AT",
         description:
-          "WASHABOO bringt Nutzer per QR-Code oder Link direkt zur Waschanlage und ermöglicht einen schnellen digitalen Einstieg.",
+          "WASHABOO bringt Nutzer per QR-Code oder Link direkt zur Waschanlage und ermöglicht einen einfachen digitalen Einstieg mit Login und Tarifauswahl.",
       },
       {
         "@type": "Organization",
@@ -93,14 +93,14 @@ export default function Home() {
               <h1 className="mt-5 text-[2rem] font-semibold leading-[1.02] tracking-tight text-white sm:text-4xl md:text-6xl md:leading-[1.02]">
                 Auto waschen per App
                 <br />
-                <span className="bg-gradient-to-r from-[#4FC3F7] via-[#2196F3] to-[#26C6DA] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[var(--brand-light)] via-[var(--brand)] to-[var(--brand-accent)] bg-clip-text text-transparent">
                   Direkt. Einfach. Ohne Münzen.
                 </span>
               </h1>
 
               <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-300 sm:text-base sm:leading-7 md:text-lg">
-                Starte deinen Waschgang direkt an der Waschanlage — per QR-Code
-                oder Link und ohne Umwege.
+                Auto waschen ohne Aufwand – öffne die App per QR-Code, wähle
+                deinen Tarif und starte sofort.
               </p>
 
               <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
@@ -118,19 +118,19 @@ export default function Home() {
               </div>
 
               <p className="mt-3 text-xs text-white/60">
-                Kein Login nötig · Direkt startklar
+                Login & Bezahlung direkt in der App
               </p>
 
               <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-xs text-white/65 sm:text-sm">
                 <span>QR-Code oder Link</span>
                 <span className="text-white/25">•</span>
-                <span>Sofort verständlich</span>
+                <span>Abo oder Einzelnutzung</span>
                 <span className="text-white/25">•</span>
-                <span>Ohne Umwege</span>
+                <span>Monatliche Abrechnung</span>
               </div>
 
               <div className="mt-4 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
-                Bereits an ersten Standorten im Einsatz
+                Basic ab 35 € / Monat · Premium 40 € / Monat
               </div>
             </div>
 
@@ -143,10 +143,10 @@ export default function Home() {
                         Nutzerzugang
                       </p>
                       <h2 className="mt-2 text-xl font-semibold text-slate-900 sm:text-2xl">
-                        In weniger als einer Minute startklar
+                        In wenigen Schritten startklar
                       </h2>
                     </div>
-                    <div className="h-10 w-10 rounded-2xl bg-gradient-to-br from-[#4FC3F7] via-[#2196F3] to-[#1E88E5] sm:h-11 sm:w-11" />
+                    <div className="h-10 w-10 rounded-2xl bg-gradient-to-br from-[var(--brand-light)] via-[var(--brand)] to-[var(--brand-dark)] sm:h-11 sm:w-11" />
                   </div>
 
                   <div className="mt-5 space-y-3 sm:mt-6">
@@ -161,10 +161,10 @@ export default function Home() {
 
                     <div className="rounded-2xl bg-slate-50 p-3.5 sm:p-4">
                       <p className="text-sm font-semibold text-slate-900">
-                        2. App öffnet sofort
+                        2. Einloggen & Tarif wählen
                       </p>
                       <p className="mt-1 text-sm text-slate-600">
-                        Ohne Registrierung direkt in den Einstieg.
+                        Basic, Premium oder Einzelnutzung auswählen.
                       </p>
                     </div>
 
@@ -173,7 +173,7 @@ export default function Home() {
                         3. Waschgang starten
                       </p>
                       <p className="mt-1 text-sm text-slate-600">
-                        Direkt loslegen und verfügbare Standorte sehen.
+                        Direkt loslegen — ohne Münzen an der Waschanlage.
                       </p>
                     </div>
                   </div>
