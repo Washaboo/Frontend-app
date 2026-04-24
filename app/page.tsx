@@ -81,7 +81,6 @@ export default function Home() {
       />
 
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16">
-        {/* HERO */}
         <section className="relative overflow-hidden rounded-[2rem] bg-[#0B1120] px-5 py-8 text-white shadow-[0_20px_60px_rgba(2,6,23,0.18)] sm:px-6 sm:py-10 md:px-10 md:py-20">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(79,195,247,0.22),_transparent_30%),radial-gradient(circle_at_top_right,_rgba(33,150,243,0.18),_transparent_28%),linear-gradient(135deg,_#0B1120_0%,_#0F172A_45%,_#111827_100%)]" />
 
@@ -91,16 +90,17 @@ export default function Home() {
                 WASHABOO · Waschen ohne Stress
               </span>
 
-              <h1 className="mt-5 text-[2rem] font-semibold leading-[1.05] tracking-tight text-white sm:text-4xl md:text-6xl md:leading-[1.05]">
-                Waschgang starten per App
+              <h1 className="mt-5 text-[2rem] font-semibold leading-[1.02] tracking-tight text-white sm:text-4xl md:text-6xl md:leading-[1.02]">
+                Auto waschen per App
                 <br />
                 <span className="bg-gradient-to-r from-[#4FC3F7] via-[#2196F3] to-[#26C6DA] bg-clip-text text-transparent">
-                  Ohne Münzen. Ohne Suchen.
+                  Direkt. Einfach. Ohne Münzen.
                 </span>
               </h1>
 
               <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-300 sm:text-base sm:leading-7 md:text-lg">
-                Direkt starten — per QR-Code oder Link an der Waschanlage.
+                Starte deinen Waschgang direkt an der Waschanlage — per QR-Code
+                oder Link und ohne Umwege.
               </p>
 
               <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
@@ -117,6 +117,10 @@ export default function Home() {
                 </Button>
               </div>
 
+              <p className="mt-3 text-xs text-white/60">
+                Kein Login nötig · Direkt startklar
+              </p>
+
               <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-xs text-white/65 sm:text-sm">
                 <span>QR-Code oder Link</span>
                 <span className="text-white/25">•</span>
@@ -124,9 +128,12 @@ export default function Home() {
                 <span className="text-white/25">•</span>
                 <span>Ohne Umwege</span>
               </div>
+
+              <div className="mt-4 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
+                Bereits an ersten Standorten im Einsatz
+              </div>
             </div>
 
-            {/* RIGHT CARD */}
             <div className="relative">
               <div className="rounded-[1.75rem] border border-white/10 bg-white/10 p-3 backdrop-blur-md sm:rounded-[2rem] sm:p-4">
                 <div className="rounded-[1.5rem] bg-white p-4 text-slate-900 shadow-2xl sm:p-5">
@@ -136,7 +143,7 @@ export default function Home() {
                         Nutzerzugang
                       </p>
                       <h2 className="mt-2 text-xl font-semibold text-slate-900 sm:text-2xl">
-                        In wenigen Sekunden startklar
+                        In weniger als einer Minute startklar
                       </h2>
                     </div>
                     <div className="h-10 w-10 rounded-2xl bg-gradient-to-br from-[#4FC3F7] via-[#2196F3] to-[#1E88E5] sm:h-11 sm:w-11" />
@@ -154,19 +161,19 @@ export default function Home() {
 
                     <div className="rounded-2xl bg-slate-50 p-3.5 sm:p-4">
                       <p className="text-sm font-semibold text-slate-900">
-                        2. Sofort öffnen
+                        2. App öffnet sofort
                       </p>
                       <p className="mt-1 text-sm text-slate-600">
-                        Ohne Umwege direkt in die App.
+                        Ohne Registrierung direkt in den Einstieg.
                       </p>
                     </div>
 
                     <div className="rounded-2xl bg-slate-50 p-3.5 sm:p-4">
                       <p className="text-sm font-semibold text-slate-900">
-                        3. Standort wählen
+                        3. Waschgang starten
                       </p>
                       <p className="mt-1 text-sm text-slate-600">
-                        Direkt sehen, wo WASHABOO verfügbar ist.
+                        Direkt loslegen und verfügbare Standorte sehen.
                       </p>
                     </div>
                   </div>
@@ -184,7 +191,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* STATIONS */}
         <Suspense fallback={<StationsListSkeleton />}>
           <StationsList />
         </Suspense>
