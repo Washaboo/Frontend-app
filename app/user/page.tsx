@@ -9,126 +9,119 @@ const APP_URL = siteConfig.appUrl;
 
 export default function UserPage() {
   return (
-    <main className="mx-auto max-w-4xl px-4 py-12 sm:px-6 md:py-16">
-      <div className="relative overflow-hidden rounded-[2rem] bg-[#0B1120] px-5 py-8 text-white shadow-[0_20px_60px_rgba(2,6,23,0.18)] sm:px-6 sm:py-10 md:px-10 md:py-12">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(79,195,247,0.2),_transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(33,150,243,0.2),_transparent_30%)]" />
+    <main className="min-h-screen bg-[#F8FAFC]">
+      <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 md:py-14">
+        <section className="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm">
+          <div className="grid gap-0 md:grid-cols-[1fr_0.95fr]">
+            <div className="px-5 py-8 sm:px-8 md:px-10 md:py-12">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#2563EB]">
+                Nutzerzugang
+              </p>
 
-        <div className="absolute -left-10 top-10 h-32 w-32 rounded-full border border-white/10" />
-        <div className="absolute right-0 top-16 h-40 w-40 translate-x-10 rounded-full border border-white/10" />
-        <div className="absolute bottom-10 right-20 h-16 w-16 rounded-full border border-[#4FC3F7]/30" />
+              <h1 className="mt-4 max-w-xl text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+                Waschgang ohne Münzen starten
+              </h1>
 
-        <div className="relative z-10">
-          <div className="max-w-2xl">
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-white/60">
-              Nutzerzugang
-            </p>
+              <p className="mt-4 max-w-xl text-sm leading-6 text-slate-600 sm:text-base sm:leading-7">
+                Scanne den QR-Code an der Waschanlage, wähle deinen Tarif und
+                starte den Waschgang direkt per App.
+              </p>
 
-            <h1 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
-              Waschgang starten
-            </h1>
-
-            <p className="mt-3 text-sm leading-6 text-white/70 sm:text-base sm:leading-7">
-              Starte deinen Waschgang direkt an der Waschanlage – per App, mit
-              Login und flexibler Nutzung.
-            </p>
-          </div>
-
-          <div className="mt-8 grid items-center gap-8 md:mt-10 md:grid-cols-2 md:gap-10">
-            <div className="flex justify-center">
-              <div className="w-full max-w-[320px] rounded-[1.75rem] border border-white/10 bg-white/10 p-3 backdrop-blur-md">
-                <div className="relative rounded-[1.5rem] bg-white p-5 shadow-2xl sm:p-6">
-                  <div className="absolute -right-4 -top-4 h-10 w-10 rounded-full border border-sky-200" />
-
-                  <div className="flex flex-col items-center text-center">
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-                      QR-Code
-                    </p>
-                    <p className="mt-2 text-sm text-slate-600">
-                      Mit dem Smartphone scannen und direkt starten
-                    </p>
-
-                    <div className="mt-5">
-                      <QRCodeSVG value={APP_URL} size={220} />
+              <div className="mt-8 space-y-3">
+                {[
+                  ["1", "QR-Code scannen", "Direkt an der Waschanlage öffnen."],
+                  ["2", "Tarif wählen", "Abo oder Einzelnutzung auswählen."],
+                  ["3", "Waschgang starten", "Ohne Münzen direkt loslegen."],
+                ].map(([number, title, text]) => (
+                  <div
+                    key={number}
+                    className="flex gap-4 rounded-2xl border border-slate-200 bg-[#F8FAFC] p-4"
+                  >
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#2563EB] text-sm font-semibold text-white">
+                      {number}
                     </div>
+                    <div>
+                      <p className="text-sm font-semibold text-slate-950">
+                        {title}
+                      </p>
+                      <p className="mt-1 text-sm leading-6 text-slate-600">
+                        {text}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                <p className="text-sm font-semibold text-slate-950">
+                  Verfügbare Tarife
+                </p>
+                <div className="mt-3 grid gap-2 text-sm text-slate-600">
+                  <div className="flex items-center justify-between gap-4">
+                    <span>Basic · 4× Waschen / Monat</span>
+                    <span className="font-semibold text-slate-950">35 €</span>
+                  </div>
+                  <div className="flex items-center justify-between gap-4">
+                    <span>Premium · 1× täglich</span>
+                    <span className="font-semibold text-slate-950">40 €</span>
+                  </div>
+                  <div className="flex items-center justify-between gap-4">
+                    <span>Einzelnutzung</span>
+                    <span className="font-semibold text-slate-950">möglich</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div>
-              <div className="rounded-2xl bg-white/10 p-4 backdrop-blur-sm sm:p-5">
-                <p className="text-sm font-semibold text-white">
-                  1. QR-Code scannen
-                </p>
-                <p className="mt-1 text-sm text-white/70">
-                  Direkt an der Station oder von diesem Bildschirm.
-                </p>
-              </div>
+            <div className="border-t border-slate-200 bg-[#F8FAFC] px-5 py-8 sm:px-8 md:px-10 md:py-12 md:border-l md:border-t-0">
+              <div className="mx-auto max-w-sm">
+                <div className="rounded-[1.5rem] border border-slate-200 bg-white p-5 text-center shadow-sm">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#2563EB]">
+                    App öffnen
+                  </p>
 
-              <div className="mt-4 rounded-2xl bg-white/10 p-4 backdrop-blur-sm sm:p-5">
-                <p className="text-sm font-semibold text-white">
-                  2. Login in der App
-                </p>
-                <p className="mt-1 text-sm text-white/70">
-                  Melde dich an oder erstelle ein Konto.
-                </p>
-              </div>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    QR-Code mit dem Smartphone scannen oder direkt öffnen.
+                  </p>
 
-              <div className="mt-4 rounded-2xl bg-white/10 p-4 backdrop-blur-sm sm:p-5">
-                <p className="text-sm font-semibold text-white">
-                  3. Waschgang starten
-                </p>
-                <p className="mt-1 text-sm text-white/70">
-                  Tarif wählen und direkt loslegen.
-                </p>
-              </div>
+                  <div className="mt-6 flex justify-center rounded-2xl bg-white p-5 ring-1 ring-slate-200">
+                    <QRCodeSVG value={APP_URL} size={220} />
+                  </div>
+                </div>
 
-              <div className="mt-6 rounded-2xl bg-white/10 p-4 text-sm text-white/80">
-                <p className="font-semibold text-white">Preise</p>
-                <ul className="mt-2 space-y-1 text-white/70">
-                  <li>Basic: 4× Waschen / Monat – 35 €</li>
-                  <li>Premium: 1× täglich – 40 €</li>
-                  <li>Einzelnutzung ebenfalls möglich</li>
-                </ul>
-                <p className="mt-2 text-xs text-white/50">
-                  Abrechnung erfolgt monatlich
-                </p>
-              </div>
+                <div className="my-6 flex items-center gap-3">
+                  <div className="h-px flex-1 bg-slate-200" />
+                  <span className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">
+                    oder
+                  </span>
+                  <div className="h-px flex-1 bg-slate-200" />
+                </div>
 
-              <div className="my-6 flex items-center gap-3">
-                <div className="h-px flex-1 bg-white/10" />
-                <span className="text-xs uppercase tracking-wider text-white/40">
-                  kein QR-Code?
-                </span>
-                <div className="h-px flex-1 bg-white/10" />
-              </div>
-
-              <Button
-                href={APP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full"
-              >
-                App direkt öffnen
-              </Button>
-
-              <p className="mt-3 text-xs text-white/55">
-                Öffnet den Einstieg direkt im Browser
-              </p>
-
-              <p className="mt-3 break-all text-xs text-white/35">{APP_URL}</p>
-
-              <div className="mt-6">
-                <Link
-                  href="/"
-                  className="text-sm font-medium text-white/70 underline underline-offset-4 hover:text-white"
+                <Button
+                  href={APP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-[#2563EB] hover:bg-[#1E40AF]"
                 >
-                  Zurück zur Startseite
-                </Link>
+                  App direkt öffnen
+                </Button>
+
+                <p className="mt-3 text-center text-xs text-slate-500">
+                  Öffnet den Einstieg direkt im Browser.
+                </p>
+
+                <div className="mt-6 text-center">
+                  <Link
+                    href="/"
+                    className="text-sm font-medium text-slate-500 underline underline-offset-4 hover:text-slate-900"
+                  >
+                    Zurück zur Startseite
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
     </main>
   );

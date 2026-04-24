@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import Link from "next/link";
 import StationsList from "@/components/StationsList";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 
 function StationsListSkeleton() {
   return (
-    <section className="mt-16 md:mt-20">
+    <section className="mt-14 md:mt-16">
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div className="max-w-2xl">
           <div className="h-4 w-28 animate-pulse rounded-full bg-slate-200" />
@@ -26,7 +27,7 @@ function StationsListSkeleton() {
           <div className="mt-4 h-5 w-96 max-w-full animate-pulse rounded-xl bg-slate-200" />
         </div>
 
-        <div className="h-10 w-28 animate-pulse rounded-full bg-white ring-1 ring-slate-200/70" />
+        <div className="h-10 w-28 animate-pulse rounded-xl bg-white ring-1 ring-slate-200" />
       </div>
 
       <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -34,12 +35,10 @@ function StationsListSkeleton() {
           <Card key={index} className="overflow-hidden">
             <div className="h-3 w-20 animate-pulse rounded-full bg-slate-200" />
             <div className="mt-3 h-7 w-40 animate-pulse rounded-xl bg-slate-200" />
-
             <div className="mt-5 rounded-2xl bg-slate-50 p-4">
               <div className="h-4 w-32 animate-pulse rounded-lg bg-slate-200" />
               <div className="mt-2 h-4 w-24 animate-pulse rounded-lg bg-slate-200" />
             </div>
-
             <div className="mt-5 h-4 w-full animate-pulse rounded-lg bg-slate-200" />
             <div className="mt-2 h-4 w-5/6 animate-pulse rounded-lg bg-slate-200" />
           </Card>
@@ -74,109 +73,128 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-[#F5F7FA] text-slate-900">
+    <main className="min-h-screen bg-[#F8FAFC] text-slate-950">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 md:py-12">
-        <section className="relative overflow-hidden rounded-[2rem] bg-white px-5 py-10 shadow-[0_18px_50px_rgba(15,23,42,0.08)] ring-1 ring-slate-200/70 sm:px-8 sm:py-12 md:px-10 md:py-16">
-          <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full border border-[#4FC3F7]/25" />
-          <div className="pointer-events-none absolute -right-10 top-16 h-32 w-32 rounded-full border border-[#2196F3]/20" />
-          <div className="pointer-events-none absolute bottom-10 left-8 h-16 w-16 rounded-full border border-[#26C6DA]/25" />
-
-          <div className="relative z-10 grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="max-w-3xl">
-              <span className="inline-flex items-center rounded-full bg-[#EAF7FF] px-4 py-1.5 text-xs font-semibold text-[#1565C0] sm:text-sm">
+        <section className="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm">
+          <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="px-5 py-10 sm:px-8 md:px-10 md:py-14">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#2563EB]">
                 WASHABOO · Waschen ohne Stress
-              </span>
-
-              <h1 className="mt-5 text-4xl font-semibold leading-[1.05] tracking-tight text-slate-950 sm:text-5xl md:text-6xl">
-                Auto waschen
-                <br />
-                <span className="bg-gradient-to-r from-[#4FC3F7] via-[#2196F3] to-[#1E88E5] bg-clip-text text-transparent">
-                  direkt per App.
-                </span>
-              </h1>
-
-              <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 md:text-lg">
-                QR-Code scannen, einloggen, Tarif wählen und Waschgang starten.
-                Einfach, digital und ohne Münzen.
               </p>
 
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Button href="/user" variant="primary" className="w-full sm:w-auto">
-                  Waschgang starten
+              <h1 className="mt-5 max-w-2xl text-4xl font-bold leading-[1.04] tracking-tight text-slate-950 sm:text-5xl md:text-6xl">
+                Auto waschen. Einfach per Smartphone.
+              </h1>
+
+              <p className="mt-5 max-w-xl text-base leading-7 text-slate-600 md:text-lg">
+                Kein Kleingeld, kein Umweg. QR-Code scannen, Tarif wählen und
+                den Waschgang direkt per App starten.
+              </p>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Button href="/user" className="w-full sm:w-auto">
+                  Jetzt Waschgang starten
                 </Button>
 
-                <Button href="/partner" variant="secondary" className="w-full sm:w-auto">
-                  Partner werden
+                <Button
+                  href="/partner"
+                  variant="secondary"
+                  className="w-full sm:w-auto"
+                >
+                  Für Betreiber
                 </Button>
               </div>
 
-              <div className="mt-6 flex flex-wrap gap-2 text-sm text-slate-600">
-                <span className="rounded-full bg-slate-100 px-3 py-1">
-                  QR-Code oder Link
-                </span>
-                <span className="rounded-full bg-slate-100 px-3 py-1">
-                  Abo oder Einzelnutzung
-                </span>
-                <span className="rounded-full bg-slate-100 px-3 py-1">
-                  Login & Bezahlung in der App
-                </span>
+              <p className="mt-5 text-sm text-slate-500">
+                Bereits an ersten Standorten im Einsatz.
+              </p>
+
+              <div className="mt-8 grid gap-3 sm:grid-cols-3">
+                {[
+                  ["Kein Kleingeld", "Waschgang digital starten"],
+                  ["Flexibel nutzen", "Abo oder Einzelnutzung"],
+                  ["Schnell starten", "Scannen und loslegen"],
+                ].map(([title, text]) => (
+                  <div
+                    key={title}
+                    className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-4"
+                  >
+                    <p className="text-sm font-semibold text-slate-950">
+                      {title}
+                    </p>
+                    <p className="mt-1 text-sm leading-5 text-slate-600">
+                      {text}
+                    </p>
+                  </div>
+                ))}
               </div>
 
-              <p className="mt-4 text-sm text-slate-500">
-                Basic ab 35 € / Monat · Premium 40 € / Monat
+              <p className="mt-6 text-sm text-slate-500">
+                Basic ab 35 € / Monat · Premium 40 € / Monat · Einzelnutzung möglich
               </p>
             </div>
 
-            <div className="relative">
-              <div className="rounded-[2rem] bg-gradient-to-br from-[#4FC3F7] via-[#2196F3] to-[#1E88E5] p-[1px] shadow-[0_20px_50px_rgba(33,150,243,0.18)]">
-                <div className="rounded-[2rem] bg-white p-5 sm:p-6">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-                        So funktioniert&apos;s
-                      </p>
-                      <h2 className="mt-2 text-2xl font-semibold text-slate-950">
-                        In 3 Schritten startklar
-                      </h2>
-                    </div>
+            <div className="border-t border-slate-200 bg-[#F8FAFC] px-5 py-8 sm:px-8 md:px-10 md:py-14 lg:border-l lg:border-t-0">
+              <div className="rounded-[1.5rem] border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#2563EB]">
+                  So funktioniert es
+                </p>
 
-                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#EAF7FF] text-xl font-semibold text-[#2196F3]">
-                      +
-                    </div>
-                  </div>
+                <h2 className="mt-3 text-2xl font-bold tracking-tight text-slate-950">
+                  In 3 Schritten waschen
+                </h2>
 
-                  <div className="mt-6 space-y-3">
-                    {[
-                      ["1", "QR-Code scannen", "Direkt an der Station oder per Link öffnen."],
-                      ["2", "Tarif wählen", "Basic, Premium oder Einzelnutzung auswählen."],
-                      ["3", "Waschgang starten", "Ohne Münzen direkt loslegen."],
-                    ].map(([number, title, text]) => (
-                      <div
-                        key={number}
-                        className="flex gap-4 rounded-2xl bg-[#F5F7FA] p-4"
-                      >
-                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-sm font-semibold text-[#2196F3] shadow-sm">
-                          {number}
-                        </div>
-                        <div>
-                          <p className="font-semibold text-slate-950">{title}</p>
-                          <p className="mt-1 text-sm leading-6 text-slate-600">
-                            {text}
-                          </p>
-                        </div>
+                <div className="mt-6 space-y-3">
+                  {[
+                    ["1", "QR-Code scannen", "Direkt an der Waschanlage öffnen."],
+                    ["2", "Tarif wählen", "Abo oder Einzelnutzung auswählen."],
+                    ["3", "Waschgang starten", "Ohne Münzen direkt loslegen."],
+                  ].map(([number, title, text]) => (
+                    <div
+                      key={number}
+                      className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-4"
+                    >
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#2563EB] text-sm font-semibold text-white">
+                        {number}
                       </div>
-                    ))}
-                  </div>
 
-                  <Button href="/user" variant="primary" className="mt-6 w-full">
-                    App öffnen
-                  </Button>
+                      <div>
+                        <p className="text-sm font-semibold text-slate-950">
+                          {title}
+                        </p>
+                        <p className="mt-1 text-sm leading-6 text-slate-600">
+                          {text}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
+
+                <Button href="/user" className="mt-6 w-full">
+                  App öffnen
+                </Button>
+              </div>
+
+              <div className="mt-4 rounded-[1.5rem] border border-slate-200 bg-white p-5">
+                <p className="text-sm font-semibold text-slate-950">
+                  Für Waschanlagen-Betreiber
+                </p>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  Bieten Sie Kunden einen digitalen Zugang zur Waschanlage —
+                  einfach per QR-Code und Link.
+                </p>
+
+                <Link
+                  href="/partner"
+                  className="mt-4 inline-flex text-sm font-semibold text-[#2563EB] hover:text-[#1E40AF]"
+                >
+                  Partnerschaft anfragen
+                </Link>
               </div>
             </div>
           </div>

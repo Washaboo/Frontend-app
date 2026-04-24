@@ -27,15 +27,14 @@ export default function Button({
   ariaLabel,
 }: ButtonProps) {
   const base =
-    "inline-flex min-h-[52px] items-center justify-center rounded-2xl px-6 text-sm font-semibold leading-none transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-white active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 whitespace-nowrap";
+    "inline-flex min-h-[48px] items-center justify-center rounded-xl px-5 text-sm font-semibold leading-none transition duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2 focus-visible:ring-offset-white active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 whitespace-nowrap";
 
   const variants = {
-    primary:
-      "bg-gradient-to-r from-[var(--brand-light)] via-[var(--brand)] to-[var(--brand-dark)] text-white shadow-[0_10px_30px_rgba(33,150,243,0.28)] hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(33,150,243,0.34)]",
+    primary: "bg-[#2563EB] text-white shadow-sm hover:bg-[#1E40AF]",
     secondary:
-      "border border-slate-200/80 bg-white text-slate-900 shadow-sm hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50 hover:shadow-md",
+      "border border-slate-200 bg-white text-slate-700 shadow-sm hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950",
     ghost:
-      "min-h-[44px] rounded-xl px-3 text-slate-700 hover:bg-slate-100/80 hover:text-slate-950",
+      "min-h-[42px] rounded-xl px-3 text-slate-600 hover:bg-slate-100 hover:text-slate-950",
   } as const;
 
   const classes = clsx(base, variants[variant], className);

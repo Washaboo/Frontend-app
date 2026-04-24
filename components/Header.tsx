@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
@@ -18,27 +17,25 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
       <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6">
         <div className={clsx(styles.topRow, "gap-4")}>
           <Link
             href="/"
             onClick={() => setMenuOpen(false)}
-            className="flex min-w-0 items-center"
+            className="flex shrink-0 items-center"
             aria-label="Zur Startseite"
           >
-            <Image
-              src="/Wash.svg"
+            <img
+              src="/washaboo-logo.svg"
               alt="WASHABOO"
-              width={140}
-              height={40}
-              className="h-9 w-auto"
-              priority
+              className="h-10 w-auto object-contain sm:h-11 md:h-12"
+              draggable="false"
             />
           </Link>
 
           <div className={styles.desktopNav}>
-            <nav className="flex items-center gap-2 rounded-full bg-slate-100/80 p-1 text-sm">
+            <nav className="flex items-center gap-5 text-sm">
               {navItems.map((item) => {
                 const isActive = pathname === item.href;
 
@@ -47,9 +44,9 @@ export default function Header() {
                     key={item.href}
                     href={item.href}
                     className={clsx(
-                      "rounded-full px-4 py-2 font-medium transition",
+                      "font-medium transition",
                       isActive
-                        ? "bg-white text-slate-950 shadow-sm"
+                        ? "text-[#2563EB]"
                         : "text-slate-600 hover:text-slate-950"
                     )}
                   >
@@ -67,11 +64,11 @@ export default function Header() {
               aria-expanded={menuOpen}
               aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
               className={clsx(
-                "inline-flex min-h-[42px] items-center justify-center rounded-full px-4 py-2 text-sm font-semibold transition",
-                "bg-slate-100 text-slate-700 hover:bg-slate-200",
+                "inline-flex min-h-[42px] items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold transition",
+                "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50",
                 "active:scale-[0.98]",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#26C6DA] focus-visible:ring-offset-2",
-                menuOpen && "bg-slate-200 text-slate-950"
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2",
+                menuOpen && "border-[#2563EB]/30 bg-[#EFF6FF] text-[#2563EB]"
               )}
             >
               {menuOpen ? "Schließen" : "Menü"}
@@ -81,7 +78,7 @@ export default function Header() {
 
         {menuOpen && (
           <div className={clsx(styles.mobileMenu, "mt-3")}>
-            <div className="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white p-2 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-sm">
               <nav className="flex flex-col gap-1">
                 {navItems.map((item) => {
                   const isActive = pathname === item.href;
@@ -92,9 +89,9 @@ export default function Header() {
                       href={item.href}
                       onClick={() => setMenuOpen(false)}
                       className={clsx(
-                        "rounded-2xl px-4 py-3 text-sm font-medium transition",
+                        "rounded-xl px-4 py-3 text-sm font-medium transition",
                         isActive
-                          ? "bg-[#EAF7FF] font-semibold text-[#1565C0]"
+                          ? "bg-[#EFF6FF] font-semibold text-[#2563EB]"
                           : "text-slate-600 hover:bg-slate-50 hover:text-slate-950"
                       )}
                     >
