@@ -27,15 +27,14 @@ export default function Header() {
             className="flex min-w-0 items-center"
             aria-label="Zur Startseite"
           >
-            import Image from "next/image";
-
-<Image
-  src="/Wash.svg"
-  alt="WASHABOO"
-  width={140}
-  height={40}
-  className="h-9 w-auto"
-/>
+            <Image
+              src="/Wash.svg"
+              alt="WASHABOO"
+              width={140}
+              height={40}
+              className="h-9 w-auto"
+              priority
+            />
           </Link>
 
           <div className={styles.desktopNav}>
